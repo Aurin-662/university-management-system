@@ -1,0 +1,43 @@
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
+### 1. Admin login
+POST http://localhost:8081/api/auth/login
+Content-Type: application/x-www-form-urlencoded
+
+username=admin&password=admin123
+
+### 2. Teacher create
+POST http://localhost:8081/api/teachers
+Content-Type: application/json
+
+{"username":"t1","password":"pass123","fullName":"Dr. Rahman","email":"t1@uni.edu","department":"CSE"}
+
+### 3. Student create
+POST http://localhost:8081/api/students
+Content-Type: application/json
+
+{"username":"s1","password":"pass123","fullName":"Karim","email":"s1@uni.edu","studentId":"2107001"}
+
+### 4. List teachers
+GET http://localhost:8081/api/teachers
+
+### 5. Logout
+POST http://localhost:8081/api/auth/logout
+
+### 6. Teacher login
+POST http://localhost:8081/api/auth/login
+Content-Type: application/x-www-form-urlencoded
+
+username=t1&password=pass123
+
+### 7. Teacher nijer record (id = 2) -> 200
+GET http://localhost:8081/api/teachers/2
+
+### 8. Teacher student er data -> 403
+GET http://localhost:8081/api/students/3
+
+### 9. Teacher list dekhte chay -> 403
+GET http://localhost:8081/api/teachers
